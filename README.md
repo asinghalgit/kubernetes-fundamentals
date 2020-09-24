@@ -1,6 +1,6 @@
-##### Kubernetes-fundamentals
+#### Kubernetes-fundamentals
 
-##### References
+#### Useful Resources
 - https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615
 - https://app.pluralsight.com/course-player?clipId=a9878a2f-3dec-4a24-8ebe-b89f1cc94410
 - https://medium.com/swlh/choreography-inside-kubernetes-aa5fcf69ac65
@@ -9,8 +9,11 @@
 - https://theithollow.com/2019/02/05/kubernetes-service-publishing/
 - https://medium.com/@tsuyoshiushio/kubernetes-in-three-diagrams-6aba8432541c
 - https://medium.com/swlh/choreography-inside-kubernetes-aa5fcf69ac65
+- https://www.slideshare.net/harryzhang735/kubernetes-beyond-a-black-box-part-1
+- https://medium.com/dev-genius/kubernetes-namespaces-core-concepts-488bb473aaee
 
-##### Key points
+
+#### Key points
 
 1. Born in Google
 2. Donated to CNCF (cloud native computing foundation) in 2014 (open source)
@@ -20,7 +23,7 @@
 6. Also known as K8s - 8 represents 8 characters between K and s in Kubernetes.
 7. An Orchestrator for Microservice Apps
 
-##### Kubernetes Architecture and components
+#### Kubernetes Architecture and components
 
 ![screenshot2](./screenshot2.PNG)
 <br>
@@ -83,17 +86,17 @@
 
 ![screenshot20](./screenshot20.PNG)
 
-##### Unit of scaling in Kubernetes is also Pod. If you want to scale a component then you do it by adding Pod.
+#### Unit of scaling in Kubernetes is also Pod. If you want to scale a component then you do it by adding Pod.
 
 ![screenshot21](./screenshot21.PNG)
 
-##### We cannot have single Pod running across multiple nodes.
+#### We cannot have single Pod running across multiple nodes.
 
-##### Pods are atomic.
+#### Pods are atomic.
 
 ![screenshot22](./screenshot22.PNG)
 
-##### Pods lifecycle
+#### Pods lifecycle
 
 - Pods are born, live and die.
 - Pod after die can not be brought back to life.
@@ -111,7 +114,7 @@ which satisfy the requirement.
 
 ![screenshot25](./screenshot25.PNG)
 
-##### Services
+#### Services
 - labels tie together services and pods.
 - services and Pods having same label get tied together.
 
@@ -123,17 +126,17 @@ which satisfy the requirement.
 
 ![screenshot29](./screenshot29.PNG)
 
-##### Deployments
+#### Deployments
 
 ![screenshot30](./screenshot30.PNG)
 
 ![screenshot31](./screenshot31.PNG)
 
-##### Installing Kubernetes
+#### Installing Kubernetes
 
 ![screenshot33](./screenshot33.PNG)
 
-##### installation on windows
+#### installation on windows
 - enable hyper-v on windows
 - install `kubectl` using link `https://kubernetes.io/docs/tasks/tools/install-kubectl/`
 - Install `minikube` using an installer executable using link `https://kubernetes.io/docs/tasks/tools/install-minikube/`
@@ -142,20 +145,20 @@ which satisfy the requirement.
 
 ![screenshot34](./screenshot34.PNG)
 
-##### installation on Google Cloud Platform
+#### installation on Google Cloud Platform
 - Refer link `https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster`
 
-##### installation on AWS
+#### installation on AWS
 - Refer link `https://kubernetes.io/docs/setup/production-environment/turnkey/aws/`
 
-##### Manual installation
+#### Manual installation
 - Refer link `https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/`
 
-##### Installation summary
+#### Installation summary
 
 ![screenshot35](./screenshot35.PNG)
 
-##### kubernetes useful commands
+#### kubernetes useful commands
 - `kubectl get nodes`
 - `minikube dashboard`
 - `kubectl describe pods`
@@ -172,7 +175,7 @@ stored in etcd data store and scheduler will assign this pod to one of K8s nodes
 - `kubectl get svc`
 - 
 
-##### Working with Pods
+#### Working with Pods
 
 ![screenshot36](./screenshot36.PNG)
 
@@ -190,13 +193,13 @@ stored in etcd data store and scheduler will assign this pod to one of K8s nodes
 
 ![screenshot43](./screenshot43.PNG)
 
-##### example of pod manifest yml file
+#### example of pod manifest yml file
 
 ![screenshot44](./screenshot44.PNG) 
 
 ![screenshot45](./screenshot45.PNG)
 
-##### Following section explains how to talk to Pods
+#### Following section explains how to talk to Pods
 
 ![screenshot46](./screenshot46.PNG)
 
@@ -204,7 +207,7 @@ stored in etcd data store and scheduler will assign this pod to one of K8s nodes
 
 ![screenshot48](./screenshot48.PNG)
 
-##### services can handle this type of communication (from external world and from inside cluster)
+#### services can handle this type of communication (from external world and from inside cluster)
 - cluster ip is automatically assigned by K8s
 - there is cluster dns name corresponding to cluster ip
 - every container in every pod knows about cluster dns
@@ -224,5 +227,35 @@ stored in etcd data store and scheduler will assign this pod to one of K8s nodes
 
 ![screenshot53](./screenshot53.PNG)
 
+#### Following example explains how to expose Pod via a Service using Command line
+- here, name of the pod is `hello-pod`
+- name of service we are providing is `hello-svc`
+- container is running on port 8080
+
 ![screenshot54](./screenshot54.PNG)
+
+#### Following example explains how to expose Pod via a Service using declarative way
+
+- kubernetes service can be of 3 type - ClusterIP, NodePort and LoadBalancer
+- ClusterIP is default one (used for internal cluster connectivity). ClusterIP only makes service available inside K8s cluster.
+- NodePort - External access via nodes
+- LoadBalancer - External access via cloud load balancer
+
+![screenshot55](./screenshot55.PNG)
+
+![screenshot56](./screenshot56.PNG)
+
+![screenshot57](./screenshot57.PNG)
+
+![screenshot58](./screenshot58.PNG)
+
+![screenshot59](./screenshot59.PNG)
+
+![screenshot60](./screenshot60.PNG)
+
+![screenshot61](./screenshot61.PNG)
+
+![screenshot62](./screenshot62.PNG)
+
+![screenshot63](./screenshot63.PNG)
 
